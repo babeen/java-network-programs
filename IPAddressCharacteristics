@@ -1,0 +1,24 @@
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class IPAddressCharacteristics {
+    public static void main(String[] args) {
+        String address = "127.0.0.1"; // Replace with the IP address you want to test
+
+        try {
+            InetAddress inetAddress = InetAddress.getByName(address);
+
+            System.out.println("Host Name: " + inetAddress.getHostName());
+            System.out.println("Host Address: " + inetAddress.getHostAddress());
+            System.out.println("Canonical Host Name: " + inetAddress.getCanonicalHostName());
+            System.out.println("Loopback Address: " + inetAddress.isLoopbackAddress());
+            System.out.println("Link Local Address: " + inetAddress.isLinkLocalAddress());
+            System.out.println("Site Local Address: " + inetAddress.isSiteLocalAddress());
+            System.out.println("Multicast Address: " + inetAddress.isMulticastAddress());
+            System.out.println("Any Local Address: " + inetAddress.isAnyLocalAddress());
+        } catch (UnknownHostException e) {
+            System.err.println("Unable to test characteristics of the IP address: " + address);
+            e.printStackTrace();
+        }
+    }
+}
